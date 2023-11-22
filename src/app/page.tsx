@@ -2,20 +2,9 @@ import { Whoami } from "@/components/whoami";
 import { headers } from "next/headers";
 import { jwtDecode } from "jwt-decode";
 
-import { format, formatDistance, subDays } from "date-fns";
+import { formatDistance } from "date-fns";
 import { NotAuthorized } from "@/components/not-authorized";
-
-type AKProxy = {
-  user_attributes: {
-    ldap_uniq: string;
-    distinguishedName: string;
-    cardId: string;
-    membershipExpiration: string;
-    membershipExpirationDate: string;
-    membershipExpirationTimestamp: number;
-  };
-  is_superuser: boolean;
-};
+import { JWTContents, getBarData } from "./LoginHeaders";
 
 export default function Home() {
   const headersList = headers();
@@ -28,37 +17,7 @@ export default function Home() {
     return <NotAuthorized />;
   }
 
-  const parsedJwt = jwtDecode<{
-    email: string;
-    name: string;
-    given_name: string;
-    preferred_username: string;
-    nickname: string;
-    groups: string[];
-    ak_proxy: AKProxy;
-  }>(jwt);
+  const { groups, nickname, expiration } = getBarData(jwt);
 
-  const {
-    email,
-    groups,
-    name,
-    given_name,
-    nickname,
-    preferred_username,
-    ak_proxy,
-  } = parsedJwt;
-  const expirationTimestamp =
-    ak_proxy.user_attributes.membershipExpirationTimestamp * 1000;
-
-  const relative = formatDistance(new Date(expirationTimestamp), Date.now(), {
-    addSuffix: true,
-  });
-
-  return (
-    <Whoami
-      groups={groups}
-      nickname={preferred_username}
-      expiration={relative}
-    />
-  );
+  return <Whoami groups={groups} nickname={nickname} expiration={expiration} />;
 }

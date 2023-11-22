@@ -3,8 +3,10 @@
  * @see https://v0.dev/t/q45IPwLqiw4
  */
 import { Badge } from "@/components/ui/badge";
+import { IconClock } from "./icons/IconClock";
+import { IconUsercircle } from "./icons/IconUserCircle";
 
-interface WhoamiProps {
+export interface WhoamiProps {
   nickname: string;
   expiration: string;
   groups: string[];
@@ -19,7 +21,7 @@ export function Whoami({ nickname, expiration, groups }: WhoamiProps) {
         </h2>
         <div className="space-y-4 text-xl">
           <div className="flex items-center space-x-3">
-            <IconUsercircle className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+            <IconUsercircle className="h-5 w-5 text-gray-500 dark:text-gray-400 font-medium" />
             <div className="text-gray-700 dark:text-gray-300">
               Preferred Name:{" "}
               <span className="font-medium text-gray-900 dark:text-white">
@@ -53,46 +55,5 @@ export function Whoami({ nickname, expiration, groups }: WhoamiProps) {
         </div>
       </div>
     </div>
-  );
-}
-
-function IconClock(props: { className?: string }) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <circle cx="12" cy="12" r="10" />
-      <polyline points="12 6 12 12 16 14" />
-    </svg>
-  );
-}
-
-function IconUsercircle(props: { className?: string }) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <circle cx="12" cy="12" r="10" />
-      <circle cx="12" cy="10" r="3" />
-      <path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662" />
-    </svg>
   );
 }
