@@ -50,7 +50,7 @@ export default function Home() {
   const expirationTimestamp =
     ak_proxy.user_attributes.membershipExpirationTimestamp * 1000;
 
-  const relative = formatDistance(Date.now(), new Date(expirationTimestamp), {
+  const relative = formatDistance(new Date(expirationTimestamp), Date.now(), {
     addSuffix: true,
   });
 
