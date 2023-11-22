@@ -7,7 +7,7 @@ RUN node --version
 RUN npm install
 RUN npm run build
 # Remove build artifacts not needed on prod
-RUN RM /app/.next/cache
+RUN rm -fr /app/.next/cache
 
 # ------------------------------------------------------
 # Production Build
