@@ -14,7 +14,7 @@ export interface WhoamiProps {
 
 export function Whoami({ nickname, expiration, groups }: WhoamiProps) {
   return (
-    <div className="flex flex-col min-h-screen justify-center align-center">
+    <div className="flex flex-col justify-center align-center">
       <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md max-w-md mx-auto ">
         <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">
           WHOAMI Dashboard
