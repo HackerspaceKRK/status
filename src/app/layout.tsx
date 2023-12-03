@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         <section className="flex flex-col min-h-screen bg-white dark:bg-zinc-900">
           <Menu />
-          <main>{children}</main>
+          <main className="flex">{children}</main>
         </section>
       </body>
     </html>
