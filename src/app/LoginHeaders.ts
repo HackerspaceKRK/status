@@ -33,9 +33,14 @@ export function getBarData(jwt: string) {
   const relative = formatDistance(new Date(expirationTimestamp), Date.now(), {
     addSuffix: true,
   });
+  
+  const expirationDate = format(new Date(expirationTimestamp), "MM/dd/yyyy");
+
   return {
     groups,
     nickname: preferred_username,
     expiration: relative,
+    expirationDate: expirationDate,
   };
+}
 }

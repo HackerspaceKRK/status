@@ -19,5 +19,5 @@ export default function Home() {
 
   const { groups, nickname, expiration } = getBarData(jwt);
 
-  return <Whoami groups={groups} nickname={nickname} expiration={expiration} />;
+  return <Whoami groups={groups} nickname={nickname} expiration={expiration} expirationDate={expirationDate} />;
 }
