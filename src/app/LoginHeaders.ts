@@ -34,13 +34,13 @@ export function getBarData(jwt: string) {
     addSuffix: true,
   });
   
-  const expirationDate = format(new Date(expirationTimestamp), "MM/dd/yyyy");
+  const expiration = format(new Date(expirationTimestamp), "MM/dd/yyyy");
 
   return {
     groups,
     nickname: preferred_username,
     expiration: relative,
-    expirationDate: expirationDate,
+    expirationDate: expiration,
   };
 }
 }
