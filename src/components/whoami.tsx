@@ -9,6 +9,7 @@ import { IconUsercircle } from "./icons/IconUserCircle";
 export interface WhoamiProps {
   nickname: string;
   expiration: string;
+  expirationDate: string;
   groups: string[];
 }
 

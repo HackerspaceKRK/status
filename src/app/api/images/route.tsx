@@ -14,6 +14,7 @@ import { headers } from "next/headers";
 function WhoamiImage({
   nickname,
   expiration,
+  expirationDate,
   groups,
   theme,
 }: WhoamiProps & {
@@ -123,7 +124,7 @@ function WhoamiImage({
               fontWeight: "bold",
             }}
           >
-            {expiration}
+            {expiration} ({expirationDate})
           </span>
         </div>
         {groups.length > 0 && (
@@ -204,7 +205,7 @@ export async function GET(request: Request) {
     );
   }
 
-  const { groups, nickname, expiration } = getBarData(jwt);
+  const { groups, nickname, expiration, expirationDate} = getBarData(jwt);
 
   return new ImageResponse(
     (
@@ -212,6 +213,7 @@ export async function GET(request: Request) {
         groups={groups}
         nickname={nickname}
         expiration={expiration}
+        expirationDate={expirationDate}
         theme={theme}
       />
     ),
