@@ -1,4 +1,4 @@
-import { formatDistance } from "date-fns";
+import { format, formatDistance } from "date-fns";
 import { jwtDecode } from "jwt-decode";
 
 export type AKProxy = {
