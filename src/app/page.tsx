@@ -17,7 +17,7 @@ export default function Home() {
     return <NotAuthorized />;
   }
 
-  const { groups, nickname, expiration } = getBarData(jwt);
+  const { groups, nickname, expiration, expirationDate } = getBarData(jwt);
 
   return <Whoami groups={groups} nickname={nickname} expiration={expiration} expirationDate={expirationDate} />;
 }
