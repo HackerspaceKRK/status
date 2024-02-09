@@ -1,4 +1,4 @@
-import { formatDistance } from "date-fns";
+import { formatDistance, formatISO } from "date-fns";
 import { jwtDecode } from "jwt-decode";
 
 export type AKProxy = {
@@ -32,7 +32,7 @@ export function getBarData(jwt: string) {
 
   const relative = formatDistance(new Date(expirationTimestamp), Date.now(), {
     addSuffix: true,
-  });
+  }) + " (" + formatISO(new Date(expirationTimestamp)) + ")";
   return {
     groups,
     nickname: preferred_username,
