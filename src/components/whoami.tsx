@@ -12,7 +12,7 @@ export interface WhoamiProps {
   groups: string[];
 }
 
-export function Whoami({ nickname, expiration, groups }: WhoamiProps) {
+export function Whoami({ nickname, expiration, groups, expirationDate }: WhoamiProps) {
   return (
     <div className="flex flex-col justify-center align-center">
       <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md max-w-md mx-auto ">
