@@ -34,7 +34,7 @@ export function getBarData(jwt: string) {
     addSuffix: true,
   });
  
-  const dateOfExpiry = format(new Date(expirationTimestamp), "MM/dd/yyyy");
+  const dateOfExpiry = format(new Date(expirationTimestamp), "dd/MM/yyyy");
 
   return {
     groups,
