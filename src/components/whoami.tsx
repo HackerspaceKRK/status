@@ -35,7 +35,7 @@ export function Whoami({ nickname, expiration, groups, expirationDate }: WhoamiP
             <div className="text-gray-700 dark:text-gray-300">
               Access Token Expiry:{" "}
               <span className="font-medium text-gray-900 dark:text-white">
-                {expiration} ({expirationDate})
+                {expirationDate}
               </span>
             </div>
           </div>
